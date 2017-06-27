@@ -1,0 +1,26 @@
+{
+  "name": "dominoweir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "nodejs": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominoweir/personal-website"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dominoweir/personal-website/issues"
+  },
+  "homepage": "https://github.com/dominoweir/personal-website#readme"
+}
