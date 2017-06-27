@@ -1,7 +1,7 @@
 {
   "name": "dominoweir",
   "version": "1.0.0",
-  "description": "",
+  "description": "Domino Weir's personal website",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/dominoweir/personal-website"
   },
-  "author": "",
+  "author": "Domino Weir",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dominoweir/personal-website/issues"
