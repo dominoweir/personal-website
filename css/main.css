@@ -1,0 +1,33 @@
+body {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: Helvetica;
+  color: black;
+  background-color: white;
+}
+
+h1 {
+  font-size:300%
+}
+
+h3 {
+  font-size: 125%
+}
+
+.navbar {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-size: 125%;
+  font-family: Helvetica;
+  background-color: white;
+  border-color: white;
+}
+
+.img {
+  padding: 20px;
+}
+
+.contact-page {
+  padding: 20px;
+}
