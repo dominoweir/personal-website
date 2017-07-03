@@ -119,10 +119,17 @@
             <p class="code">git clone https://github.com/EE306-Fa16-Telang/EID.git</p>
           </div>
           <h3>The General Workflow</h3>
-          <p>Okay, now that we’ve gotten everything set up, let’s talk about how to use Git effectively. Essentially, you will upload your projects to the master repo as you work on and complete them. We will look at master when we grade your projects. <em>If you do not send your changes to master, we cannot grade your work.</em> The general workflow is: pull (download) projects to your computer, work on them, and push your changes (submit your work) back to master. The two commands we will use most frequently are “git commit” and “git push.” </p>
+          <p>Okay, now that we’ve gotten everything set up, let’s talk about how to use Git effectively. Essentially, you will upload your projects to the master repo as you work on and complete them. We will look at master when we grade your projects. <em>If you do not send your changes to master, we cannot grade your work.</em> The general workflow is: pull (download) projects to your computer, work on them, and push your changes (submit your work) back to master. The two commands we will use most frequently are “git commit” and “git push.” One other really helpful command is "git status" which shows you the state of all files in your current directory. More on that later. </p>
           <h3>Committing Your Code</h3>
           <p>Just in case you’ve forgotten, go back and take a look at the definition I provided for commit above. Okay, so we know that committing is basically telling Git, “hey, I did a thing and I want to save the thing.” <em>Committing is not the same as pushing and the two are not equivalent.</em> They are two steps of the same process. You must commit your changes before pushing them, else you will get an error message. Simply use the following command: </p>
           <p class="code">git commit *file name here* -m “*commit message here*”</p>
+          <p>So, let's say for example I wanted to commit my website code, specifically the blog page because I'm working on this blog post right now. Then, my commit would look like this when entered:</p>
+          <div class="container text-center">
+            <img src="files/git-commit.png"></img>
+            <p>An Example Commit for One of My Projects</p>
+          </div>
+          <p>Okay, let's see what that did. I can now type "git status" to check on the status of my repository.</p>
+
           <h3>Pushing Your Changes</h3>
           <p></p>
           <h3>What To Do If You Have Problems</h3>

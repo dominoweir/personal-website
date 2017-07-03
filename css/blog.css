@@ -10,18 +10,6 @@
    background-color: white;
  }
 
-
-/*
- * Override Bootstrap's default container.
- */
-
-@media (min-width: 1200px) {
-  .container {
-    width: 970px;
-  }
-}
-
-
 /*
  * Blog name and description
  */
@@ -41,6 +29,9 @@
   color: #999;
 }
 
+.code {
+  font-family: Courier;
+}
 
 /*
  * Main column and sidebar layout
