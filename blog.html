@@ -38,9 +38,95 @@
       <div class="col-sm-9 blog-main">
 
         <div class="blog-post">
-          <h2 class="blog-post-title">Coming soon!</h2>
-          <p class="blog-post-meta"></p><!-- date goes here -->
-          <p></p><!-- content goes here -->
+          <h2 class="blog-post-title">Freshman Introduction to Git</h2>
+          <p class="blog-post-meta">July 3rd, 2017</p><!-- date goes here -->
+          <p><em>Note: the original intended audience for this post was the freshman EE306 class I TAed in Fall 2016. This article served as their first introduction to version control software, more specifically Git.</em></p>
+          <p>Let me start off by saying that I was very intimidated by Git when I first started using it. It seems like this scary, magical thing that can break at the drop of a hat with no explanation. I think it’s awesome now that I understand it, and I think there truly is no magic to it once you understand what is going on behind the scenes.</p>
+          <p>A word of warning: like most computer programs, Git will only do exactly what you tell it to do. <em>For the purposes of this class, I would not recommend Googling solutions/using answers from Stack Overflow if you run in to problems.</em> It is better to come to your TAs or Dr. Telang to resolve Git issues because we are owners of the repository, and because we all have experience using this tool. Let’s get started with some explanation of what a “command line”         is, plus some other definitions. It will help you understand what I’m saying better if you have a little bit of context first. </p>
+          <h3>The Command Line</h3>
+          <p>Remember when you were little and watched the scene where Neko “reads code” and it's just random green text on a black background? Here’s some context if you guys are too young to remember that movie (I hope y’all still do or else I’m just getting old): </p>
+          <div class="container text-center">
+            <img src="https://i.stack.imgur.com/zymAc.gif"></img>
+            <p><em>Image credit goes to the Science Fiction Stack Overflow</em></p>
+          </div>
+          <p>That thing is called the command line, and it is the predecessor of more modern computer operating systems such as Linux and Windows. This tool, also sometimes called the terminal (Mac) or command prompt (Windows), is still one of the most important and powerful things on your computer. Here’s what it looks like on my MacBook Pro: </p>
+          <div class="container text-center">
+            <img src="files/terminal-mac.png"></img>
+            <p><em>The Mac Terminal Window</em></p>
+          </div>
+          <p>Lots of developers have dedicated their time to replacing this simple, if somewhat ugly, tool with GUIs (graphical user interfaces) that are easier for a human to use. For example, text editors like Sublime and development environments like Eclipse were made for editing and compiling Java code in a more user-friendly fashion than using the “java compile” command in the terminal. However, the terminal remains popular due to its simplicity and incredible power. Sometimes, this simple little thing is easier to use than graphical user tools. In the case of Git, the provided GUI is difficult to learn, and rarely used in professional settings.  </p>
+          <h3>Some Helpful Terms</h3>
+          <p><em>Note: don’t worry if these terms don’t make total sense yet, just try your best to understand them for now and we’ll come back to them later once we really start talking about how to use Git. </em></p>
+          <p><em>Command line:</em> the “hacker” black screen you’ve seen in movies. Type in text commands, get back some text output. No pretty pictures, and a little more intimidating, but way more powerful. </p>
+          <p><em>Repository/repo:</em> A repository is simply a directory (folder) that is connected to Git. The repository (repo for short) for this class is a record of all of your projects. </p>
+          <p><em>Master copy:</em> The central copy of your work, generally the most recent copy that the Git server can find. You know how you can submit an assignment multiple times on Canvas? This is kind of like that. Even if you work on an assignment locally on your computer, the only thing Canvas knows about is the most recent thing you submitted. Git works in much the same way- if you don’t submit your changes, we can’t grade them. </p>
+          <p><em>Commit:</em> The action of telling git that you have changes you want to send to the server. Essentially, you’re saying “hey, I want to update these files that I’ve been working on locally.” The commit command also lets you add a message to your commit, so that you can easily keep track of what you’re working on. Just as you should save often when writing an essay, you should commit often when writing code. </p>
+          <p><em>Push:</em> The action of actually submitting your changes to the server. In our Canvas metaphor, committing is kind of like uploading the file you want to submit for an assignment, and pushing is hitting the submit button. </p>
+          <p><em>Pull:</em> The git pull command says to the server you’re getting changes from: “hey, any updates to existing files? Any new files I need to know about?” If whatever you have locally differs from what master has, those new changes and files will be downloaded to your machine. You cannot work on things locally until you pull from master. For example, you cannot work on lab one until we have added it to master and you pull it. Until then, the lab1 folder will not exist on your computer. You could make one, but it would not be “connected” to Git automatically like your lab0 folder is. You simply need to pull any new changes for that lab1 folder you want to appear.</p>
+          <p><em>Clone:</em> The git clone command is what you will use to make a copy of the master repo on your computer. Essentially, it means “make a local (on my computer) copy.” </p>
+
+          <h3>Getting Started</h3>
+          <p>You can go to <a href="https://git-scm.com/downloads">the git-scm downloads page</a> to download Git if your computer runs Windows. For this class, you will need to write your code on a Windows machine, so either this will be your native operating system or a virtual machine that your EE302 or possibly EE306 professor asked you to set up. This download will give you access to both the command line and GUI versions of Git. In this tutorial, I will show you how to use the command line version. Complete the installation process by executing the file you downloaded, selecting all the default options during the installation process. If that intimidates you or if you get confused, we can work on this during recitation this week.</p>
+          <p>Let’s get you guys set up with your repository for this class. First, we need to open Git. I simply right clicked on the folder I wanted to copy my repo to and selected "Git Bash Here." Here's what that looked like on my old PC:</p>
+          <div class="container text-center">
+            <img src="files/windows-git.png"></img>
+            <p>git-scm on Windows 10</p>
+          </div>
+
+          <h3>Some Helpful Commands</h3>
+          <p>I'm using my Mac without a virtual machine to write this tutorial so my screen will look a little different than yours, but the text on the screen is basically the same. Really the only difference is the computer's name and the text colors.</p>
+          <h4>List Files</h4>
+          <p>The list files command will list the files in your current directory. When you open up a new terminal window, it will automatically open in your "home" directory. From here, type "ls" then press enter and see what happens. Here's what happens in my terminal:</p>
+          <div class="container text-center">
+            <img src="files/ls.png"></img>
+            <p class="code">ls</p>
+          </div>
+          <p>So, this command lists all of the directories and files within your current directory. It's sort of like asking your computer "where am I?" Now, try typing "ls -al" instead:</p>
+          <div class="container text-center">
+            <img src="files/ls-al.png"></img>
+            <p class="code">ls -al</p>
+          </div>
+          <p>By adding the tags "-al" we asked the computer to list all files and folders in this directory, even if they are hidden from the user. These are files and folders like ".bash_profile" (really anything that starts with "."). They are generally hidden because the average person doesn't need to know about them or would mess them up if they tried to edit them.</p>
+          <p>These commands, particularly "ls," are incredibly helpful when working in the terminal. They quickly show you what is in your system without you having to switch away from the terminal window and use your file browser.</p>
+          <h4>Change Directories</h4>
+          <p>Another important task is changing between directories- basically the terminal equivalent of switching between folders. Type "ls" to get a list of the files and directories in your current working directory. Then, pick a folder to change in to. In this example, I will switch to my desktop directory from my home directory (written as "~" by the terminal) by typing "cd " and the name of the directory.</p>
+          <div class="container text-center">
+            <img src="files/cd.png"></img>
+            <p class="code">ls</p>
+            <p class="code">cd Desktop/</p>
+          </div>
+          <p>Now my working directory has become my Desktop folder. When I type "ls" I get a list of the two folders in my Desktop directory, which match what I see on my Desktop. Also, notice my terminal location has changed from "domino.weir@C02T94Y2H03Q:~$" to "domino.weir@C02T94Y2H03Q:~/Desktop$"</p>
+          <div class="container text-center">
+            <img src="files/cd-ls.png"></img>
+            <p class="code">ls</p>
+          </div>
+          <p>Now let's say I want to go back "up" one level to my home directory. I simply type "cd" followed by two dots. ".." is the terminal shorthand for "up one level." Now, my working directory is my home directory (domino.weir@C02T94Y2H03Q:~$), right where I started before.</p>
+          <div class="container text-center">
+            <img src="files/cd-dot.png"></img>
+            <p class="code">cd ..</p>
+          </div>
+          <p>Understanding how to change between directories is an important skill. As we have seen, the same command (such as "ls") can yield totally different results (different files listed) based on the directory you run them from. This will be true of git commands as well, once we start talking about those.</p>
+
+          <h3>Cloning a Repository</h3>
+          <p>Let’s get you guys set up with your repository for this class. First, we need to open Git. I simply right clicked on the folder I wanted to copy my repo to and selected "Git Bash Here." Here's what that looked like on my old PC:</p>
+          <div class="container text-center">
+            <img src="files/windows-git.png"></img>
+            <p>git-scm on Windows 10</p>
+          </div>
+          <p>To copy the directory you want, simply copy and paste the following line in to the prompt and hit enter, replacing EID with your actual UT EID: "git clone https://github.com/EE306-Fa16-Telang/EID.git" This will copy all files to whatever location you run this command from, so be sure to open the bash tool from a sensible location that you don’t mind using. Simply hit enter and the cloning process will begin.</p>
+          <div class="container text-center">
+            <img src="files/clone.png"></img>
+            <p class="code">git clone https://github.com/EE306-Fa16-Telang/EID.git</p>
+          </div>
+          <h3>The General Workflow</h3>
+          <p>Okay, now that we’ve gotten everything set up, let’s talk about how to use Git effectively. Essentially, you will upload your projects to the master repo as you work on and complete them. We will look at master when we grade your projects. <em>If you do not send your changes to master, we cannot grade your work.</em> The general workflow is: pull (download) projects to your computer, work on them, and push your changes (submit your work) back to master. The two commands we will use most frequently are “git commit” and “git push.” </p>
+          <h3>Committing Your Code</h3>
+          <p>Just in case you’ve forgotten, go back and take a look at the definition I provided for commit above. Okay, so we know that committing is basically telling Git, “hey, I did a thing and I want to save the thing.” <em>Committing is not the same as pushing and the two are not equivalent.</em> They are two steps of the same process. You must commit your changes before pushing them, else you will get an error message. Simply use the following command: </p>
+          <p class="code">git commit *file name here* -m “*commit message here*”</p>
+          <h3>Pushing Your Changes</h3>
+          <p></p>
+          <h3>What To Do If You Have Problems</h3>
+          <p></p>
         </div><!-- /.blog-post -->
 
       </div><!-- /.blog-main -->
@@ -53,7 +139,7 @@
         <div class="sidebar-module">
           <h4>Archives</h4>
           <ol class="list-unstyled">
-            <li><a href="posts/github.html"></a></li>
+            <li><a href="blog.html">Freshman Introduction to Git</a></li>
           </ol>
         </div>
         <div class="sidebar-module">
