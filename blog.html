@@ -126,13 +126,25 @@
           <p>So, let's say for example I wanted to commit my website code, specifically the blog page because I'm working on this blog post right now. Then, my commit would look like this when entered:</p>
           <div class="container text-center">
             <img src="files/git-commit.png"></img>
-            <p>An Example Commit for One of My Projects</p>
+            <p class="code">git commit -a -m “blog example commit”</p>
           </div>
           <p>Okay, let's see what that did. I can now type "git status" to check on the status of my repository.</p>
+          <div class="container text-center">
+            <img src="files/git-status.png"></img>
+            <p class="code">git status</p>
+          </div>
+          <p>One common misconception with git is that the feedback you get after hitting enter is some kind of error message, or that red text is bad. But if you look at the text of the response, nothing is wrong. It's kind of just a confirmation receipt of the action you just took. As for the red text, that is just git's way of drawing your attention to the name of a file that git does not track. It is telling me I could add this file using the "git add *file*" command, but I'm choosing not to because that's an unimportant metadata file.</p>
 
           <h3>Pushing Your Changes</h3>
-          <p></p>
+          <p>Pushing is the act of “hitting submit,” or actually sending your changes. <em>You must commit before you can push.</em> Just type "git push" and hit enter to execute this command.</p>
+          <div class="container text-center">
+            <img src="files/git-push.png"></img>
+            <p class="code">git push</p>
+          </div>
+          <p>You should get some feedback from pushing- a message to the effect of “successfully pushed to XXXX.” Again, this is not an error message, more of a confirmation receipt. If you get some kind of message saying your code could not be pushed, read the error message carefully. Chances are you just forgot to commit your code first and git is telling you to do exactly that. You can also check if your commit was successful by navigating to "https://github.com/EE306-Fa16-Telang/EID" and checking the time and date of the last commit of the file you changed. </p>
+
           <h3>What To Do If You Have Problems</h3>
+          <p>If you have any questions about how to use git, or if you have trouble setting up your repo, please do not hesitate to ask for help. Piazza is a great resource for quick questions, and we are always happy to see you in office hours if you have a more specific or complicated problem. </p>
           <p></p>
         </div><!-- /.blog-post -->
 
