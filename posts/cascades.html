@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Domino Weir</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../index.html">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="github.html">Blog</a></li>
+            <li><a href="https://drive.google.com/file/d/0BwOvqtYr5BmDdF9yQ3pUbzZ6Zkk/view?usp=sharing">Resume</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+      </div><!--/.container-fluid -->
+    </nav>
+
+
+    <div class="row">
+
+      <div class="col-sm-1"></div>
+
+      <div class="col-sm-9 blog-main">
+
+        <div class="blog-post">
+          <h2 class="blog-post-title">Human Tracking with Cascade Classifiers in Python</h2>
+          <p class="blog-post-meta">July 6th, 2017</p><!-- date goes here -->
+          <p><em>Note: this post was originally featured on minionhut.com as a record of my freshman year research project</em></p>
+          <p>Due to a lack of progress in fine tuning my human tracking work using a background subtractor, I decided to try a new technique using cascade classifiers and some simple algebra to track a body. Cascade classifiers work by using a kernel of light and dark pixels (0s and 1s) and comparing them to the given image to identify certain features. The classifier is "trained" using lots of positive and negative images, or things that are clearly the object and things that are clearly not faces. This is a good method but was proven to be very slow in practice; this is where the concept of a cascade comes in. If a few general matches are not made in a certain area, the search is abandoned and the classifier moves on to the next set of pixels. As general features are found, the classifier "cascades" to the next set of features. The analogy simply describes a movement from general to specific and the jumps made to reach the specifics.</p>
+          <p>I found that using multiple cascades is not particularly efficient; the entire program was slowed when I was performing full body, upper/lower body, and face cascades all at once. I decided to focus on face cascades, half because they are decently efficient when used by themselves and half because I was curious to see if an entire human body could be tracked if only the face could be recognized. This is where some basic algebra comes in to play. After searching around the internet, I discovered from a burn percentage diagram for serious burn victims that the face is approximately 13.5% of the body's anterior (frontal) surface area. With this piece of information, all we need to do is a simple set of ratios to find the full frontal body area.</p>
+          <p>However, this number is not useful by itself. We need to know the approximate height and width of the person in the frame. More math comes in here; the human body is approximately 7.5 human heads high. The length of the entire body can therefore be calculated from the length of the face detected by the classifier; it should be noted that because we go off face length instead of head length the multiplier ends up being 7.75 instead. After calculating height, all that's needed is to divide the area by the height to get the body width. These two pieces of information are all that's needed to track someone off just their face in the camera's foreground to midground.</p>
+          <div class="container text-center">
+            <img src="http://res.cloudinary.com/de9kbeo0h/image/upload/v1437058668/svle8ci736jzgh2x4lz6.gif"/>
+          </div>
+          <p>From here I added two more things to the program, as this is clearly not accurate enough. First, I added a profile classifier, so that if no full frontal faces are detected or if some are but there is still other motion in the frame, the remianing undetected bodies can still be tracked. The method for finding a full body off this profile is exactly the same as for a frontal face as the dimensions are basically the same. Second, I added full body tracking back in. If no frontal faces or profiles are found in the image then we check for full bodies as well- less efficient, but it works much better for bodies that are further in the background as their facial features are not as clear. In addition, I changed the type of frontal face classifier; the new one does not pick up non human objects nearly as often.</p>
+          <p>One last and more complicated change was approximation- if no full bodies or faces are detected, then we go to the slower last resort method of finding upper and lower body halves and matching them up based on location. The process itself is pretty straightforward; find upper and lower body halves, find their locations, compare to one another, and remove them from the list of found objects as things get matched up. The reason this takes longer to do (the "lag" between user movement and detection) is that this requires two cascades to be performed instead of the usual one; therefore it's kind of a last resort. See the final results in image form below:</p>
+          <div class="container text-center">
+            <img src="http://res.cloudinary.com/de9kbeo0h/image/upload/v1440600594/k2jj7pdi9pynfdaa0qhp.png" alt="" />
+            <p>Approximation</p>
+          </div>
+        </div><!-- /.blog-post -->
+
+      </div><!-- /.blog-main -->
+
+      <div class="col-sm-2 blog-sidebar">
+          <div class="sidebar-module .text-center">
+            <img src="../files/blogicon.png" class="img-circle"></img>
+            <h4><a href="about.html">More About the Author</a></h4>
+          </div>
+        <div class="sidebar-module">
+          <h4>Archives</h4>
+          <ol class="list-unstyled">
+            <li><a href="github.html">Freshman Introduction to Git</a></li>
+            <li><a href="tracker.html">Human Tracking with Background Subtraction in Python</a></li>
+            <li><a href="cascades.html">Human Tracking with Cascade Classifiers in Python</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-module">
+          <h4>Links</h4>
+          <ol class="list-unstyled">
+            <li><a href="https://github.com/dominoweir">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/domino-weir/">LinkedIn</a></li>
+          </ol>
+        </div>
+      </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
