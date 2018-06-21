@@ -2,6 +2,7 @@
     "title": "Resume",
     "name": "startbootstrap-resume",
     "version": "4.1.1",
+    "main": "index.js",
     "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
     "keywords": [
         "css",
@@ -29,7 +30,8 @@
         "bootstrap": "4.1.1",
         "devicons": "^1.8.0",
         "jquery": "3.3.1",
-        "simple-line-icons": "^2.4.1"
+        "simple-line-icons": "^2.4.1",
+        "nodejs": "^0.0.0"
     },
     "devDependencies": {
         "browser-sync": "2.24.3",
@@ -39,5 +41,8 @@
         "gulp-rename": "^1.2.2",
         "gulp-sass": "4.0.1",
         "gulp-uglify": "3.0.0"
+    },
+    "scripts": {
+      "start": "node index.js"
     }
 }
