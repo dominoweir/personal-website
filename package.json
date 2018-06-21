@@ -1,24 +1,14 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
+    "title": "Domino Weir",
+    "name": "personal-website",
     "version": "4.1.1",
     "main": "index.js",
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "description": "Domino Weir's personal website.",
     "license": "MIT",
     "author": "Start Bootstrap",
+    "engines": {
+      "node": "6.11.4"
+    },
     "contributors": [
         "David Miller (http://davidmiller.io/)"
     ],
