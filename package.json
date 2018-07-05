@@ -1,38 +1,26 @@
 {
-    "title": "Domino Weir",
-    "name": "personal-website",
-    "version": "4.1.1",
-    "main": "index.js",
-    "description": "Domino Weir's personal website.",
-    "license": "MIT",
-    "author": "Start Bootstrap",
-    "engines": {
-      "node": "6.11.4"
-    },
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
-    },
-    "dependencies": {
-        "bootstrap": "4.1.1",
-        "devicons": "^1.8.0",
-        "jquery": "3.3.1",
-        "simple-line-icons": "^2.4.1",
-        "nodejs": "^0.0.0"
-    },
-    "devDependencies": {
-        "browser-sync": "2.24.3",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "3.9.4",
-        "gulp-header": "2.0.5",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "4.0.1",
-        "gulp-uglify": "3.0.0"
-    },
-    "scripts": {
-      "start": "node index.js"
-    }
+  "name": "dominoweir",
+  "version": "1.0.0",
+  "description": "Domino Weir's personal website",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "nodejs": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dominoweir/personal-website"
+  },
+  "author": "Domino Weir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dominoweir/personal-website/issues"
+  },
+  "homepage": "https://github.com/dominoweir/personal-website#readme"
 }
